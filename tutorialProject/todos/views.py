@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 
 # Create your views here.
@@ -17,3 +17,7 @@ def hello_html_view(request):
 
 def hello_path(request, name):
     return HttpResponse(f"Hello {name}!!🖖🏻")
+
+
+def other_view(request):
+    return redirect("hello_html")
