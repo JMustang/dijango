@@ -31,4 +31,7 @@ def post_example(request):
         return HttpResponse(f"Sue nome: {name}, idade: {age}, profissão: {job}")
     else:
         return HttpResponseNotAllowed(["POST"])
-    return HttpResponse("Método não permitido")
+
+
+def submit_exemplo(request):
+    return render(request, "todos/submit.html")
