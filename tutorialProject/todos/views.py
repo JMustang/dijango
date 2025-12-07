@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import redirect, render
 
 
@@ -21,3 +21,14 @@ def hello_path(request, name):
 
 def other_view(request):
     return redirect("hello_html")
+
+
+def post_example(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        job = request.POST.get("job")
+        return HttpResponse(f"Sue nome: {name}, idade: {age}, profissão: {job}")
+    else:
+        return HttpResponseNotAllowed(["POST"])
+    return HttpResponse("Método não permitido")
