@@ -48,6 +48,12 @@ def submit_django_form(request):
 
 
 def temp_view(request):
-    context = {"name": "Bjorn", "age": 30, "skills": ["python", "SQL", "Docker"]}
+    skills = ["python", "SQL", "Docker"]
+    context = {
+        "name": "Bjorn",
+        "age": 30,
+        "skills": skills,
+        "has_python": "python" in [s.lower() for s in skills],
+    }
 
     return render(request, "todos/temp_demo.html", context)

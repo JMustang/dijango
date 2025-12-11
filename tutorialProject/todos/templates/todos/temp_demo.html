@@ -1,9 +1,17 @@
-<h1>{{ name }}</h1>
-<h1>{{ age }}</h1>
-<h1>{{ skills }}</h1>
+{% extends "todos/base.html" %} {% block title %}Temp demo{% endblock %} {%
+block content %}
+<h1>Nome: {{ name }}</h1>
+<h1>Idade: {{ age }}</h1>
+<h1>Skills: {{ skills }}</h1>
 
 <ul>
   {% for skill in skills %}
   <li>{{skill}}</li>
   {% endfor %}
 </ul>
+
+{% if skills|length > 3 %}
+<p>{{name}} tem muitas skills!</p>
+{% elif has_python %}
+<p>{{name}} conhece python, ele tem o poder!</p>
+{% endif %} {% endblock %}
