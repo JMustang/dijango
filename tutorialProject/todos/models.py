@@ -16,4 +16,4 @@ class Todo(models.Model):
     priority = models.DateField(choices=PriorityChoices.choices, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.id,} - {self.title}"
+        return f"{self.id} - {self.title}"

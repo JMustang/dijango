@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import redirect, render
 from .forms import PersonForm
+from .models import Todo
 
 
 # Create your views here.
@@ -57,3 +58,14 @@ def temp_view(request):
     }
 
     return render(request, "todos/temp_demo.html", context)
+
+
+def todos_view(request):
+    if request.method == "POST":
+        pass
+
+        return
+
+    todos = Todo.objects.all()
+
+    return render(request, "todos/todo.html", {"todo": todos})
