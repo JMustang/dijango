@@ -80,3 +80,10 @@ def person_details(request, person_id):
     person = Person.objects.filter(id=person_id).first()
 
     return render("todos/person_details.html", {"person": person})
+
+
+def delete_todo(request, todo_id):
+    todo = Todo.objects.filter(id=todo_id).first()
+    todo.delete()
+
+    return HttpResponse("✅ Todo successfully deleted!")

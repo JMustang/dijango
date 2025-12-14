@@ -12,5 +12,6 @@ urlpatterns = [
     path("form", views.submit_django_form, name="django_form"),
     path("temp2", views.temp_view, name="temp_view"),
     path("todos", views.todos_view, name="todos"),
+    path("person/<int:person_id>", views.person_details, name="person"),
     path("path/<str:name>", views.hello_path, name="path_html"),
 ]
