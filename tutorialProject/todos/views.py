@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import redirect, render
-from .forms import PersonForm
+from .forms import PersonForm, TodoForm
 from .models import Todo
 
 
@@ -62,10 +62,12 @@ def temp_view(request):
 
 def todos_view(request):
     if request.method == "POST":
-        pass
+        form = TodoForm(request.POST)
 
-        return
-
-    todos = Todo.objects.all()
-
-    return render(request, "todos/todo.html", {"todo": todos})
+        if form.isvalid():
+            todo = form.save()
+            return HttpResponse("✅ Todo successefully created!")
+        else:
+            form = TodoForm()
+            todos = Todo.objects.all()
+            return render(request, "todos/todo.html", {"form": form, "todos": todos})
