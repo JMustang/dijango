@@ -1,5 +1,7 @@
-{% extends "todos/base.html" %} {% block title %}Temp demo{% endblock %} {%
-block content %}
+{% extends "todos/base.html" %}
+{% block title %}Temp demo{% endblock %}
+
+{% block content %}
 <h1>Nome: {{ name }}</h1>
 <h1>Idade: {{ age }}</h1>
 <h1>Skills: {{ skills }}</h1>
@@ -14,5 +16,6 @@ block content %}
 <p>{{name}} tem muitas skills!</p>
 {% elif has_python %}
 <p>{{name}} conhece python, ele tem o poder!</p>
-{% endif %} {% comment %} ####################################{% endcomment %}
+{% endif %}
+
 {% endblock %}

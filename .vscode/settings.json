@@ -1,0 +1,13 @@
+{
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "[django-html]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": false
+}
