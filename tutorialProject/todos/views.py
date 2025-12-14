@@ -87,3 +87,9 @@ def delete_todo(request, todo_id):
     todo.delete()
 
     return HttpResponse("✅ Todo successfully deleted!")
+
+
+def toggle_todo_done(request, todo_id):
+    todo = Todo.objects.filter(id=todo_id).first()
+    todo.done = not todo.done
+    todo.save()
