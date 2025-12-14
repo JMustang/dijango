@@ -61,13 +61,16 @@ def temp_view(request):
 
 
 def todos_view(request):
+    todos = Todo.objects.all()
+
     if request.method == "POST":
         form = TodoForm(request.POST)
 
-        if form.isvalid():
-            todo = form.save()
-            return HttpResponse("✅ Todo successefully created!")
-        else:
-            form = TodoForm()
-            todos = Todo.objects.all()
-            return render(request, "todos/todo.html", {"form": form, "todos": todos})
+        if form.is_valid():
+            form.save()
+            return redirect("todos")
+        # Se não for válido, o form já contém os erros, então renderiza com ele
+    else:
+        form = TodoForm()
+
+    return render(request, "todos/todos.html", {"form": form, "todos": todos})

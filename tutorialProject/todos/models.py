@@ -13,7 +13,9 @@ class Todo(models.Model):
     description = models.CharField(max_length=500)
     done = models.BooleanField(default=False)
     deadline = models.DateField(null=True, blank=True)
-    priority = models.DateField(choices=PriorityChoices.choices, null=True, blank=True)
+    priority = models.IntegerField(
+        choices=PriorityChoices.choices, null=True, blank=True
+    )
 
     def __str__(self):
         return f"{self.id} - {self.title}"
